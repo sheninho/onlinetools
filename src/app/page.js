@@ -99,7 +99,7 @@ export default function Home() {
               </div>
               <div className="p-4">
                 <Button className="w-full bg-white text-gray-900 hover:bg-gray-100 border-2 border-gray-900 font-bold py-2 px-4 rounded-full transform transition-transform duration-200 hover:scale-105" asChild>
-                  <a href={tool.link}>Utiliser l'outil</a>
+                  <a href={tool.link}>Utiliser l&apos;outil</a>
                 </Button>
               </div>
             </Card>
