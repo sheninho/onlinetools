@@ -43,7 +43,7 @@ export default function Home() {
     .sort((a, b) => b.visits - a.visits);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Head>
         <title>Outils Utiles</title>
         <meta name="description" content="Une collection d'outils simples et utiles." />
