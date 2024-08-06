@@ -6,34 +6,27 @@ import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
 
 const tools = [
-  { name: 'Calcul de l\'IMC', link: '/tools/bmi-calculator', icon: 'Scale' },
-  { name: 'Générateur de codes QR', link: '/tools/qr-generator', icon: 'QrCode' },
-  { name: 'Téléchargement YouTube', link: '/tools/youtube-downloader', icon: 'Youtube' },
-  { name: 'Calculatrice en ligne', link: '/tools/calculator', icon: 'Calculator' },
-  { name: 'Convertisseur d\'unités', link: '/tools/unit-converter', icon: 'RefreshCw' },
-  { name: 'Générateur de mots de passe', link: '/tools/password-generator', icon: 'Key' },
-  { name: 'Conversion de devises', link: '/tools/currency-converter', icon: 'Banknote' },
-  { name: 'Convertisseur de fichiers', link: '/tools/file-converter', icon: 'FileSymlink' },
-  { name: 'Compteur de mots', link: '/tools/word-counter', icon: 'FileText' },
-  { name: 'Calculateur de date', link: '/tools/date-calculator', icon: 'Calendar' },
-  { name: 'Compression d\'images', link: '/tools/image-compressor', icon: 'Image' },
-  { name: 'Signatures électroniques', link: '/tools/signature-creator', icon: 'Pen' },
-  { name: 'Conversion en Morse', link: '/tools/morse-converter', icon: 'Braces' },
-  { name: 'Convertisseur de casse', link: '/tools/text-case-converter', icon: 'Type' },
-  { name: 'Calculateur de prêt', link: '/tools/loan-calculator', icon: 'PiggyBank' },
-  { name: 'Générateur Lorem Ipsum', link: '/tools/lorem-ipsum-generator', icon: 'FileText' },
-  { name: 'Calculateur de pourcentage', link: '/tools/percentage-calculator', icon: 'Percent' },
-  { name: 'Vérificateur de grammaire', link: '/tools/grammar-checker', icon: 'Check' },
-  { name: 'Calculateur de distance', link: '/tools/distance-calculator', icon: 'MapPin' },
-  { name: 'Générateur de code barre', link: '/tools/barcode-generator', icon: 'Barcode' },
+  { name: 'Calcul de l\'IMC', link: '/tools/bmi-calculator', icon: 'Scale', color: 'bg-yellow-400' },
+  { name: 'Générateur de codes QR', link: '/tools/qr-generator', icon: 'QrCode', color: 'bg-pink-500' },
+  { name: 'Téléchargement YouTube', link: '/tools/youtube-downloader', icon: 'Youtube', color: 'bg-blue-500' },
+  { name: 'Calculatrice en ligne', link: '/tools/calculator', icon: 'Calculator', color: 'bg-green-400' },
+  { name: 'Convertisseur d\'unités', link: '/tools/unit-converter', icon: 'RefreshCw', color: 'bg-purple-500' },
+  { name: 'Générateur de mots de passe', link: '/tools/password-generator', icon: 'Key', color: 'bg-red-400' },
+  { name: 'Conversion de devises', link: '/tools/currency-converter', icon: 'Banknote', color: 'bg-indigo-500' },
+  { name: 'Convertisseur de fichiers', link: '/tools/file-converter', icon: 'FileSymlink', color: 'bg-orange-400' },
+  { name: 'Compteur de mots', link: '/tools/word-counter', icon: 'FileText', color: 'bg-teal-500' },
+  { name: 'Calculateur de date', link: '/tools/date-calculator', icon: 'Calendar', color: 'bg-cyan-400' },
+  { name: 'Compression d\'images', link: '/tools/image-compressor', icon: 'Image', color: 'bg-lime-500' },
+  { name: 'Signatures électroniques', link: '/tools/signature-creator', icon: 'Pen', color: 'bg-emerald-400' },
+  { name: 'Conversion en Morse', link: '/tools/morse-converter', icon: 'Braces', color: 'bg-rose-500' },
+  { name: 'Convertisseur de casse', link: '/tools/text-case-converter', icon: 'Type', color: 'bg-fuchsia-400' },
+  { name: 'Calculateur de prêt', link: '/tools/loan-calculator', icon: 'PiggyBank', color: 'bg-sky-500' },
+  { name: 'Générateur Lorem Ipsum', link: '/tools/lorem-ipsum-generator', icon: 'FileText', color: 'bg-amber-400' },
+  { name: 'Calculateur de pourcentage', link: '/tools/percentage-calculator', icon: 'Percent', color: 'bg-violet-500' },
+  { name: 'Vérificateur de grammaire', link: '/tools/grammar-checker', icon: 'Check', color: 'bg-blue-400' },
+  { name: 'Calculateur de distance', link: '/tools/distance-calculator', icon: 'MapPin', color: 'bg-pink-400' },
+  { name: 'Générateur de code barre', link: '/tools/barcode-generator', icon: 'Barcode', color: 'bg-green-500' },
 ];
-
-const neoMemphisColors = [
-  'bg-yellow-400', 'bg-pink-500', 'bg-blue-500', 'bg-green-400', 'bg-purple-500',
-  'bg-red-400', 'bg-indigo-500', 'bg-orange-400', 'bg-teal-500', 'bg-cyan-400'
-];
-
-const getRandomColor = () => neoMemphisColors[Math.floor(Math.random() * neoMemphisColors.length)];
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -76,10 +69,9 @@ export default function Home() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
           {filteredTools.map((tool) => {
             const IconComponent = LucideIcons[tool.icon];
-            const bgColor = getRandomColor();
             return (
               <Link href={tool.link} key={tool.name}>
-                <Card className={`h-24 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-center items-center ${bgColor} border-2 border-gray-900 cursor-pointer transform hover:rotate-2`}>
+                <Card className={`h-24 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-center items-center ${tool.color} border-2 border-gray-900 cursor-pointer transform hover:rotate-2`}>
                   <IconComponent className="w-8 h-8 text-white mb-2" />
                   <p className="text-xs font-bold text-white text-center px-2">{tool.name}</p>
                 </Card>
