@@ -67,3 +67,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* styles/globals.css */
+@keyframes blob {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
