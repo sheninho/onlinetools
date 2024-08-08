@@ -90,7 +90,7 @@ const UnitConverter = () => {
         <CardHeader className="bg-purple-500 text-white font-bold py-4 px-6">
           <div className="flex items-center">
             <RefreshCw className="mr-2 h-6 w-6" />
-            Convertisseur d'Unités
+            Convertisseur d&apos;Unités
           </div>
         </CardHeader>
         <CardContent className="p-6">

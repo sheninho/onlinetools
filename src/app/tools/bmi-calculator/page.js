@@ -36,7 +36,7 @@ const BMICalculator = () => {
         <CardHeader className="bg-yellow-400 text-white font-bold py-4 px-6">
           <div className="flex items-center">
             <Scale className="mr-2 h-6 w-6" />
-            Calculateur d'IMC
+            Calculateur d&apos;IMC
           </div>
         </CardHeader>
         <CardContent className="p-6">
@@ -70,7 +70,7 @@ const BMICalculator = () => {
             onClick={calculateBMI}
             className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
           >
-            Calculer l'IMC
+            Calculer l&apos;IMC
           </Button>
           {bmi > 0 && (
             <div className="mt-6 text-center">
