@@ -26,6 +26,11 @@ const tools = [
   { name: 'Vérificateur de grammaire', link: '/tools/grammar-checker', icon: 'Check', color: 'bg-blue-400' },
   { name: 'Calculateur de distance', link: '/tools/distance-calculator', icon: 'MapPin', color: 'bg-pink-400' },
   { name: 'Générateur de code barre', link: '/tools/barcode-generator', icon: 'Barcode', color: 'bg-green-500' },
+  
+  { name: 'Bouteille qui tourne', link: '/tools/spin-the-bottle', icon: 'RotateCcw', color: 'bg-yellow-500' },
+  { name: 'Lancer de dés', link: '/tools/dice-roll', icon: 'Dice5', color: 'bg-purple-400' },
+  { name: 'Nombre aléatoire', link: '/tools/random-number', icon: 'Hash', color: 'bg-blue-300' },
+  { name: 'Pile ou face', link: '/tools/coin-flip', icon: 'Coins', color: 'bg-green-600' },
 ];
 
 export default function Home() {
