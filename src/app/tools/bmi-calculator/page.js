@@ -4,18 +4,29 @@ import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Scale } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 const BMICalculator = () => {
+  const { addToast } = useToast();
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
   const [bmiStatus, setBmiStatus] = useState('');
 
   const calculateBMI = () => {
+    if (!weight || weight <= 0) {
+      addToast('Veuillez entrer un poids valide', 'warning');
+      return;
+    }
+    if (!height || height <= 0) {
+      addToast('Veuillez entrer une taille valide', 'warning');
+      return;
+    }
     const heightInMeters = height / 100;
     const calculatedBMI = weight / (heightInMeters * heightInMeters);
     setBmi(calculatedBMI.toFixed(1));
     evaluateBMIStatus(calculatedBMI);
+    addToast('IMC calculé avec succès !', 'success');
   };
 
   const evaluateBMIStatus = (bmi) => {

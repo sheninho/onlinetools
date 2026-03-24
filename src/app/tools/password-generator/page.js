@@ -6,8 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Key, Copy } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 const PasswordGenerator = () => {
+  const { addToast } = useToast();
   const [password, setPassword] = useState('');
   const [length, setLength] = useState(12);
   const [includeUppercase, setIncludeUppercase] = useState(true);
@@ -27,17 +29,27 @@ const PasswordGenerator = () => {
     if (includeNumbers) characters += numbers;
     if (includeSymbols) characters += symbols;
 
+    if (characters === '') {
+      addToast('Veuillez sélectionner au moins une option', 'warning');
+      return;
+    }
+
     let generatedPassword = '';
     for (let i = 0; i < length; i++) {
       generatedPassword += characters.charAt(Math.floor(Math.random() * characters.length));
     }
 
     setPassword(generatedPassword);
+    addToast('Mot de passe généré avec succès !', 'success');
   };
 
   const copyToClipboard = () => {
+    if (!password) {
+      addToast('Aucun mot de passe à copier', 'warning');
+      return;
+    }
     navigator.clipboard.writeText(password);
-    alert('Mot de passe copié dans le presse-papiers !');
+    addToast('Mot de passe copié dans le presse-papiers !', 'success');
   };
 
   return (
